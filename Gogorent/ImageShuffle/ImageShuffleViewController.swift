@@ -23,9 +23,10 @@ final class ImageShuffleViewController: UIViewController {
     }
     
     private func setUpData() {
-        for index in 1...7 {
-            rooms.append(.init(imageName: "room\(index)", title: "Room \(index)", description: "This is room \(index)"))
-        }
+        rooms = Room.createRandomRooms()
+//        for index in 1...7 {
+//            rooms.append(.init(imageName: "room\(index)", title: "Room \(index)", description: "This is room \(index)"))
+//        }
     }
     
     private func setUpUI() {
@@ -39,6 +40,7 @@ final class ImageShuffleViewController: UIViewController {
             cardStack.heightAnchor.constraint(equalToConstant: cardSize.height)
         ])
             
+        cardStack.delegate = self
         cardStack.dataSource = self
         
         let heartImage = UIImage(systemName: "heart.fill")?.applyingSymbolConfiguration(.init(font: .systemFont(ofSize: 50)))
@@ -89,7 +91,6 @@ final class ImageShuffleViewController: UIViewController {
     }
 }
 
-
 extension ImageShuffleViewController: SwipeCardStackDataSource {
     func cardStack(_ cardStack: Shuffle.SwipeCardStack, cardForIndexAt index: Int) -> Shuffle.SwipeCard {
         card(from: rooms[index])
@@ -97,5 +98,13 @@ extension ImageShuffleViewController: SwipeCardStackDataSource {
     
     func numberOfCards(in cardStack: Shuffle.SwipeCardStack) -> Int {
         rooms.count
+    }
+}
+
+extension ImageShuffleViewController: SwipeCardStackDelegate {
+    func cardStack(_ cardStack: SwipeCardStack, didSelectCardAt index: Int) {
+        let vc = UIViewController()
+        vc.view.backgroundColor = .yellow
+        present(vc, animated: true)
     }
 }

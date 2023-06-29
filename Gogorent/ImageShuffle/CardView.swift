@@ -49,6 +49,7 @@ final class CardView: UIView {
         contentLabel.font = .systemFont(ofSize: 20)
         contentLabel.text = room.description
         contentLabel.textColor = .white
+        contentLabel.numberOfLines = 0
         
         let labelStackView = UIStackView(arrangedSubviews: [titleLabel, contentLabel])
         labelStackView.axis = .vertical
@@ -66,6 +67,7 @@ final class CardView: UIView {
             bioBackground.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
             
             labelStackView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
+            labelStackView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20),
             labelStackView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -20)
         ])
         
