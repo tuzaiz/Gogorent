@@ -49,10 +49,10 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
             let requestCell = cell as! RequestCell
             requestCell.requestLabel.text = str
             
-        case .result(let str, let colors):
+        case .result(let str, let imageNames):
             let resultCell = cell as! ResultCell
             resultCell.resultLabel.text = str
-            resultCell.colors = colors
+            resultCell.imageNames = imageNames
             break
         }
         return cell
@@ -73,7 +73,7 @@ struct Step {
     enum ValueType {
         case userInput(String)
         case request(String)
-        case result(String, [UIColor])
+        case result(String, [String])
     }
     
     let value: ValueType
@@ -94,11 +94,11 @@ struct Step {
             .init(value: .userInput("我想租離到 XX 地點，車程約 20min 內的房子")),
             .init(value: .request("您希望自行開車還是大眾交通工具？")),
             .init(value: .userInput("開車")),
-            .init(value: .result("以下是推薦的房源", [.systemMint, .systemRed, .systemBlue, .systemCyan])),
+            .init(value: .result("以下是推薦的房源", ["room1", "room2", "room3", "room4"])),
             .init(value: .userInput("我有養貓，幫我過濾可以養貓的房")),
-            .init(value: .result("以下是可以養貓的房源", [.systemMint, .systemBlue])),
+            .init(value: .result("以下是可以養貓的房源", ["room1", "room3"])),
             .init(value: .userInput("我預算只有 20000")),
-            .init(value: .result("以下是月租低於 20000 的房源", [.systemMint])),
+            .init(value: .result("以下是月租低於 20000 的房源", ["room3"])),
         ]
     }
 }

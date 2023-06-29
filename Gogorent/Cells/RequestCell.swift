@@ -16,6 +16,8 @@ class RequestCell: UITableViewCell {
         super.awakeFromNib()
         selectionStyle = .none
         
+        requestLabel.textColor = .white
+        
         stackView.isLayoutMarginsRelativeArrangement = true
         stackView.directionalLayoutMargins = .init(top: 4.0, leading: 8.0, bottom: 4.0, trailing: 8.0)
         stackView.layer.cornerRadius = 8.0

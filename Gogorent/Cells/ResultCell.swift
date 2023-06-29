@@ -12,9 +12,9 @@ class ResultCell: UITableViewCell {
     @IBOutlet weak var resultLabel: UILabel!
     @IBOutlet weak var stackView: UIStackView!
     
-    var colors: [UIColor] = [] {
+    var imageNames: [String] = [] {
         didSet {
-            if oldValue != colors {
+            if oldValue != imageNames {
                 updateResults()
             }
         }
@@ -23,6 +23,8 @@ class ResultCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         selectionStyle = .none
+        
+        resultLabel.textColor = .white
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -38,25 +40,27 @@ class ResultCell: UITableViewCell {
         }
         
         // Create
-        for color in colors {
+        for imageName in imageNames {
             let view = UIView()
             view.translatesAutoresizingMaskIntoConstraints = false
-            view.backgroundColor = color
             view.layer.cornerRadius = 8.0
+            view.clipsToBounds = true
             
-            let label = UILabel()
-            label.translatesAutoresizingMaskIntoConstraints = false
-            label.textColor = .white
-            label.text = "房源"
-            view.addSubview(label)
+            let imageView = UIImageView()
+            imageView.translatesAutoresizingMaskIntoConstraints = false
+            imageView.image = UIImage(named: imageName)
+            imageView.contentMode = .scaleAspectFill
+            imageView.clipsToBounds = true
+            view.addSubview(imageView)
             
             NSLayoutConstraint.activate([
                 view.widthAnchor.constraint(equalToConstant: 115.0),
                 view.heightAnchor.constraint(equalToConstant: 120.0),
-                label.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-                label.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+                imageView.topAnchor.constraint(equalTo: view.topAnchor),
+                imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+                imageView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+                imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
             ])
-            
             stackView.addArrangedSubview(view)
         }
     }
