@@ -24,9 +24,6 @@ final class ImageShuffleViewController: UIViewController {
     
     private func setUpData() {
         rooms = Room.createRandomRooms()
-//        for index in 1...7 {
-//            rooms.append(.init(imageName: "room\(index)", title: "Room \(index)", description: "This is room \(index)"))
-//        }
     }
     
     private func setUpUI() {
