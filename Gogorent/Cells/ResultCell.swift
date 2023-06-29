@@ -9,6 +9,7 @@ import UIKit
 
 class ResultCell: UITableViewCell {
     
+    private var loadingContentView: UIView!
     private var loadingView: UIView!
     @IBOutlet weak var resultLabel: UILabel!
     @IBOutlet weak var stackView: UIStackView!
@@ -27,14 +28,25 @@ class ResultCell: UITableViewCell {
         super.awakeFromNib()
         selectionStyle = .none
         
+        loadingContentView = UIView()
+        loadingContentView.translatesAutoresizingMaskIntoConstraints = false
+        loadingContentView.backgroundColor = .white
+        loadingContentView.isHidden = true
+        
         loadingView = UIView()
-        let resultLableContentView = resultLabel.superview!
-        resultLableContentView.superview?.addSubview(loadingView)
+        loadingView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(loadingContentView)
+        loadingContentView.addSubview(loadingView)
+
         NSLayoutConstraint.activate([
-            loadingView.topAnchor.constraint(equalTo: resultLableContentView.topAnchor),
-            loadingView.leadingAnchor.constraint(equalTo: resultLableContentView.leadingAnchor),
-            loadingView.bottomAnchor.constraint(equalTo: resultLableContentView.bottomAnchor),
-            loadingView.trailingAnchor.constraint(equalTo: resultLableContentView.trailingAnchor)
+            loadingContentView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            loadingContentView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            loadingContentView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            loadingContentView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            loadingView.topAnchor.constraint(equalTo: loadingContentView.topAnchor, constant: 8.0),
+            loadingView.leadingAnchor.constraint(equalTo: loadingContentView.leadingAnchor, constant: 16.0),
+            loadingView.widthAnchor.constraint(equalToConstant: 100.0),
+            loadingView.heightAnchor.constraint(equalToConstant: 40.0)
         ])
         
         resultLabel.textColor = .white
@@ -102,16 +114,12 @@ class ResultCell: UITableViewCell {
     }
     
     func playLoadingAnimation() {
-        loadingView.alpha = 1.0
-        resultLabel.superview?.alpha = 0.0
-        stackView.alpha = 0.0
+        loadingContentView.isHidden = false
         
         showAnimatingDotsInImageView(dotsView: loadingView, baseline: 0.0, dotXOffset: 0.0, dotSize: 8.0, dotSpacing: 12.0)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) { [self] in
-            loadingView.alpha = 0.0
-            resultLabel.superview?.alpha = 1.0
-            stackView.alpha = 1.0
+            loadingContentView.isHidden = true
         }
     }
 }
