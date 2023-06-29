@@ -17,6 +17,9 @@
 		EC56179C2A4D6577001FB230 /* ImageShuffleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC56179B2A4D6577001FB230 /* ImageShuffleViewController.swift */; };
 		EC56179E2A4D67FF001FB230 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC56179D2A4D67FF001FB230 /* Room.swift */; };
 		EC5617A02A4D6A13001FB230 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC56179F2A4D6A13001FB230 /* CardView.swift */; };
+		778D1A882A4D68DB00BD4284 /* UserInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778D1A872A4D68DB00BD4284 /* UserInputCell.swift */; };
+		778D1A8A2A4D6ACF00BD4284 /* RequestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778D1A892A4D6ACF00BD4284 /* RequestCell.swift */; };
+		778D1A8C2A4D74DD00BD4284 /* ResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778D1A8B2A4D74DD00BD4284 /* ResultCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +34,9 @@
 		EC56179B2A4D6577001FB230 /* ImageShuffleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageShuffleViewController.swift; sourceTree = "<group>"; };
 		EC56179D2A4D67FF001FB230 /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
 		EC56179F2A4D6A13001FB230 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		778D1A872A4D68DB00BD4284 /* UserInputCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInputCell.swift; sourceTree = "<group>"; };
+		778D1A892A4D6ACF00BD4284 /* RequestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestCell.swift; sourceTree = "<group>"; };
+		778D1A8B2A4D74DD00BD4284 /* ResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +70,7 @@
 		474F32792A4D601D0010E14B /* Gogorent */ = {
 			isa = PBXGroup;
 			children = (
+				778D1A862A4D68B400BD4284 /* Cells */,
 				474F327A2A4D601D0010E14B /* AppDelegate.swift */,
 				474F327C2A4D601D0010E14B /* SceneDelegate.swift */,
 				474F327E2A4D601D0010E14B /* ViewController.swift */,
@@ -84,6 +91,16 @@
 				EC56179F2A4D6A13001FB230 /* CardView.swift */,
 			);
 			path = ImageShuffle;
+			sourceTree = "<group>";
+		};
+		778D1A862A4D68B400BD4284 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				778D1A872A4D68DB00BD4284 /* UserInputCell.swift */,
+				778D1A892A4D6ACF00BD4284 /* RequestCell.swift */,
+				778D1A8B2A4D74DD00BD4284 /* ResultCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -165,6 +182,9 @@
 			files = (
 				EC56179C2A4D6577001FB230 /* ImageShuffleViewController.swift in Sources */,
 				474F327F2A4D601D0010E14B /* ViewController.swift in Sources */,
+				778D1A882A4D68DB00BD4284 /* UserInputCell.swift in Sources */,
+				778D1A8C2A4D74DD00BD4284 /* ResultCell.swift in Sources */,
+				778D1A8A2A4D6ACF00BD4284 /* RequestCell.swift in Sources */,
 				474F327B2A4D601D0010E14B /* AppDelegate.swift in Sources */,
 				474F327D2A4D601D0010E14B /* SceneDelegate.swift in Sources */,
 				EC5617A02A4D6A13001FB230 /* CardView.swift in Sources */,
