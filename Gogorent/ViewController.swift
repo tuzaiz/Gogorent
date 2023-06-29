@@ -53,6 +53,9 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
             let resultCell = cell as! ResultCell
             resultCell.resultLabel.text = str
             resultCell.imageNames = imageNames
+            if indexPath.row == dataSource.count - 1 {
+                resultCell.playLoadingAnimation()
+            }
             break
         }
         return cell
