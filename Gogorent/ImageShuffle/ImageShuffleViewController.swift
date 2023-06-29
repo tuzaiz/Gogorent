@@ -13,8 +13,6 @@ final class ImageShuffleViewController: UIViewController {
     private var rooms: [Room] = []
     private let controlBar = UIStackView()
     
-    private let cardSize: CGSize = .init(width: 360, height: 400)
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,8 +31,8 @@ final class ImageShuffleViewController: UIViewController {
         NSLayoutConstraint.activate([
             cardStack.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 100),
             cardStack.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            cardStack.widthAnchor.constraint(equalToConstant: cardSize.width),
-            cardStack.heightAnchor.constraint(equalToConstant: cardSize.height)
+            cardStack.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.9),
+            cardStack.heightAnchor.constraint(equalTo: cardStack.widthAnchor, multiplier: 1.1)
         ])
             
         cardStack.delegate = self
@@ -73,8 +71,15 @@ final class ImageShuffleViewController: UIViewController {
         let card = SwipeCard()
         card.swipeDirections = [.left, .right]
         let cardView = CardView(room: room)
-        cardView.frame = .init(origin: .zero, size: cardSize)
         card.content = cardView
+        
+        cardView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            cardView.topAnchor.constraint(equalTo: card.topAnchor),
+            cardView.leadingAnchor.constraint(equalTo: card.leadingAnchor),
+            cardView.trailingAnchor.constraint(equalTo: card.trailingAnchor),
+            cardView.bottomAnchor.constraint(equalTo: card.bottomAnchor)
+        ])
         
         return card
     }
