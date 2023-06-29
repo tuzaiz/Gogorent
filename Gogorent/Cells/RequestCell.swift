@@ -14,6 +14,7 @@ class RequestCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        selectionStyle = .none
         
         stackView.isLayoutMarginsRelativeArrangement = true
         stackView.directionalLayoutMargins = .init(top: 4.0, leading: 8.0, bottom: 4.0, trailing: 8.0)

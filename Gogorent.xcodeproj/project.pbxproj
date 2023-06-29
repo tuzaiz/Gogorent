@@ -13,6 +13,10 @@
 		474F32822A4D601D0010E14B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 474F32802A4D601D0010E14B /* Main.storyboard */; };
 		474F32842A4D601F0010E14B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 474F32832A4D601F0010E14B /* Assets.xcassets */; };
 		474F32872A4D601F0010E14B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 474F32852A4D601F0010E14B /* LaunchScreen.storyboard */; };
+		EC5617992A4D631D001FB230 /* Shuffle in Frameworks */ = {isa = PBXBuildFile; productRef = EC5617982A4D631D001FB230 /* Shuffle */; };
+		EC56179C2A4D6577001FB230 /* ImageShuffleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC56179B2A4D6577001FB230 /* ImageShuffleViewController.swift */; };
+		EC56179E2A4D67FF001FB230 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC56179D2A4D67FF001FB230 /* Room.swift */; };
+		EC5617A02A4D6A13001FB230 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC56179F2A4D6A13001FB230 /* CardView.swift */; };
 		778D1A882A4D68DB00BD4284 /* UserInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778D1A872A4D68DB00BD4284 /* UserInputCell.swift */; };
 		778D1A8A2A4D6ACF00BD4284 /* RequestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778D1A892A4D6ACF00BD4284 /* RequestCell.swift */; };
 		778D1A8C2A4D74DD00BD4284 /* ResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778D1A8B2A4D74DD00BD4284 /* ResultCell.swift */; };
@@ -27,6 +31,9 @@
 		474F32832A4D601F0010E14B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		474F32862A4D601F0010E14B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		474F32882A4D601F0010E14B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EC56179B2A4D6577001FB230 /* ImageShuffleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageShuffleViewController.swift; sourceTree = "<group>"; };
+		EC56179D2A4D67FF001FB230 /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
+		EC56179F2A4D6A13001FB230 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		778D1A872A4D68DB00BD4284 /* UserInputCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInputCell.swift; sourceTree = "<group>"; };
 		778D1A892A4D6ACF00BD4284 /* RequestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestCell.swift; sourceTree = "<group>"; };
 		778D1A8B2A4D74DD00BD4284 /* ResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultCell.swift; sourceTree = "<group>"; };
@@ -37,6 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC5617992A4D631D001FB230 /* Shuffle in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,12 +74,23 @@
 				474F327A2A4D601D0010E14B /* AppDelegate.swift */,
 				474F327C2A4D601D0010E14B /* SceneDelegate.swift */,
 				474F327E2A4D601D0010E14B /* ViewController.swift */,
+				EC56179A2A4D654F001FB230 /* ImageShuffle */,
 				474F32802A4D601D0010E14B /* Main.storyboard */,
 				474F32832A4D601F0010E14B /* Assets.xcassets */,
 				474F32852A4D601F0010E14B /* LaunchScreen.storyboard */,
 				474F32882A4D601F0010E14B /* Info.plist */,
 			);
 			path = Gogorent;
+			sourceTree = "<group>";
+		};
+		EC56179A2A4D654F001FB230 /* ImageShuffle */ = {
+			isa = PBXGroup;
+			children = (
+				EC56179B2A4D6577001FB230 /* ImageShuffleViewController.swift */,
+				EC56179D2A4D67FF001FB230 /* Room.swift */,
+				EC56179F2A4D6A13001FB230 /* CardView.swift */,
+			);
+			path = ImageShuffle;
 			sourceTree = "<group>";
 		};
 		778D1A862A4D68B400BD4284 /* Cells */ = {
@@ -100,6 +119,9 @@
 			dependencies = (
 			);
 			name = Gogorent;
+			packageProductDependencies = (
+				EC5617982A4D631D001FB230 /* Shuffle */,
+			);
 			productName = Gogorent;
 			productReference = 474F32772A4D601D0010E14B /* Gogorent.app */;
 			productType = "com.apple.product-type.application";
@@ -128,6 +150,9 @@
 				Base,
 			);
 			mainGroup = 474F326E2A4D601D0010E14B;
+			packageReferences = (
+				EC5617972A4D631D001FB230 /* XCRemoteSwiftPackageReference "Shuffle" */,
+			);
 			productRefGroup = 474F32782A4D601D0010E14B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -155,12 +180,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC56179C2A4D6577001FB230 /* ImageShuffleViewController.swift in Sources */,
 				474F327F2A4D601D0010E14B /* ViewController.swift in Sources */,
 				778D1A882A4D68DB00BD4284 /* UserInputCell.swift in Sources */,
 				778D1A8C2A4D74DD00BD4284 /* ResultCell.swift in Sources */,
 				778D1A8A2A4D6ACF00BD4284 /* RequestCell.swift in Sources */,
 				474F327B2A4D601D0010E14B /* AppDelegate.swift in Sources */,
 				474F327D2A4D601D0010E14B /* SceneDelegate.swift in Sources */,
+				EC5617A02A4D6A13001FB230 /* CardView.swift in Sources */,
+				EC56179E2A4D67FF001FB230 /* Room.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,6 +406,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		EC5617972A4D631D001FB230 /* XCRemoteSwiftPackageReference "Shuffle" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mac-gallagher/Shuffle.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EC5617982A4D631D001FB230 /* Shuffle */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EC5617972A4D631D001FB230 /* XCRemoteSwiftPackageReference "Shuffle" */;
+			productName = Shuffle;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 474F326F2A4D601D0010E14B /* Project object */;
 }

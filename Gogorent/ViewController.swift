@@ -24,6 +24,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         tableView.dataSource = self
+        tableView.delegate = self
     }
     
     @IBAction func nextBtnTapped(_ sender: Any) {
@@ -31,7 +32,7 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: UITableViewDataSource {
+extension ViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataSource.count
     }
@@ -55,6 +56,16 @@ extension ViewController: UITableViewDataSource {
             break
         }
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let stepData = dataSource[indexPath.row]
+        switch stepData.value {
+        case .result:
+            present(ImageShuffleViewController(), animated: true)
+        default:
+            break
+        }
     }
 }
 
