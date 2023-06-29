@@ -255,7 +255,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DH6-NE-la9">
+                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DH6-NE-la9">
                                 <rect key="frame" x="330.33333333333331" y="768" width="46.666666666666686" height="34.333333333333371"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="arrowtriangle.right.fill" catalog="system"/>
@@ -279,6 +279,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="inputField" destination="Yjg-uj-lje" id="JJc-9B-wk8"/>
                         <outlet property="tableView" destination="9OE-7j-8Zj" id="oyP-nP-DGI"/>
                     </connections>
                 </viewController>
