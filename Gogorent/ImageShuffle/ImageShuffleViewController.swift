@@ -13,6 +13,8 @@ final class ImageShuffleViewController: UIViewController {
     private var rooms: [Room] = []
     private let controlBar = UIStackView()
     
+    private var transitionCard: SwipeCard?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -105,8 +107,42 @@ extension ImageShuffleViewController: SwipeCardStackDataSource {
 
 extension ImageShuffleViewController: SwipeCardStackDelegate {
     func cardStack(_ cardStack: SwipeCardStack, didSelectCardAt index: Int) {
-        let vc = UIViewController()
-        vc.view.backgroundColor = .yellow
-        present(vc, animated: true)
+        
+        transitionCard = cardStack.card(forIndexAt: index)
+        
+        let roomDetailViewController = RoomDetailViewController(room: rooms[index], imageHeight: transitionCard?.frame.height ?? 0)
+        roomDetailViewController.modalPresentationStyle = .overFullScreen
+        roomDetailViewController.transitioningDelegate = self
+        present(roomDetailViewController, animated: true)
+    }
+}
+
+extension ImageShuffleViewController: CardTransitionAnimatorPresenting {
+    func transitionViewRect() -> CGRect? {
+        guard let card = transitionCard else {
+            return nil
+        }
+        
+        var frame = card.superview?.convert(card.frame, to: view)
+        
+        let window = UIApplication.shared.windows.first
+        let topPadding = window?.safeAreaInsets.top ?? 0
+        frame?.origin.y += topPadding
+        
+        return frame
+    }
+    
+    func transitionView() -> UIView? {
+        transitionCard
+    }
+}
+
+extension ImageShuffleViewController: UIViewControllerTransitioningDelegate {
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return CardTransitionAnimator()
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return CardTransitionAnimator()
     }
 }
